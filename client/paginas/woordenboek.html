@@ -1,0 +1,48 @@
+<div id="header">
+    <h2>&quot; Woordenboek &quot;</h2>
+</div>
+<div class="positie-content-container">
+<div id="letters">
+    <p data-ng-click="zoekOpLetter('A')">A</p>
+    <p data-ng-click="zoekOpLetter('B')">B</p>
+    <p data-ng-click="zoekOpLetter('C')">C</p>
+    <p data-ng-click="zoekOpLetter('D')">D</p>
+    <p data-ng-click="zoekOpLetter('E')">E</p>
+    <p data-ng-click="zoekOpLetter('F')">F</p>
+    <p data-ng-click="zoekOpLetter('G')">G</p>
+    <p data-ng-click="zoekOpLetter('H')">H</p>
+    <p data-ng-click="zoekOpLetter('I')">I</p>
+    <p data-ng-click="zoekOpLetter('J')">J</p>
+    <p data-ng-click="zoekOpLetter('K')">K</p>
+    <p data-ng-click="zoekOpLetter('L')">L</p>
+    <p data-ng-click="zoekOpLetter('M')">M</p>
+    <p data-ng-click="zoekOpLetter('N')">N</p>
+    <p data-ng-click="zoekOpLetter('O')">O</p>
+    <p data-ng-click="zoekOpLetter('P')">P</p>
+    <p data-ng-click="zoekOpLetter('Q')">Q</p>
+    <p data-ng-click="zoekOpLetter('R')">R</p>
+    <p data-ng-click="zoekOpLetter('S')">S</p>
+    <p data-ng-click="zoekOpLetter('T')">T</p>
+    <p data-ng-click="zoekOpLetter('U')">U</p>
+    <p data-ng-click="zoekOpLetter('V')">V</p>
+    <p data-ng-click="zoekOpLetter('W')">W</p>
+    <p data-ng-click="zoekOpLetter('X')">X</p>
+    <p data-ng-click="zoekOpLetter('Y')">Y</p>
+    <p data-ng-click="zoekOpLetter('Z')">Z</p>
+</div>
+    <div data-ng-repeat="woord in woorden" class="woord">
+        <a href="/#/woord/{{ woord._id }}">
+            <img class="woordAfbeelding" src="{{ woord.afbeelding }}" alt="thema-afbeelding van het woord" />
+        </a>
+        <a href="/#/woord/{{ woord._id }}">
+            <h5>{{ woord.woord }}</h5>
+            <ul>
+                <li data-ng-repeat="tag in woord.tags">{{ tag }}</li>
+            </ul>
+        </a>
+    </div>
+    <div id="messageVak">
+        <p id="errorMessage">
+        </p>
+    </div>
+</div>

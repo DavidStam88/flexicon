@@ -1,0 +1,30 @@
+<div id="log-reg">
+    <div id="log-form">
+        <h2>LOG IN</h2>
+        <p class="message">{{ loginMessage }}</p>
+        <form name="login">
+            <input id="maile_log" type="text" data-ng-model="login.email" placeholder="Je email adres" /><br />
+            <input id="wachtwoord_log" type="password" data-ng-model="login.wachtwoord" placeholder="Je wachtwoord" /><br />
+            <button id="login" data-ng-click="loginForm(login)">LOG IN</button>
+            <button id="loginFacebook" data-ng-click="loginForm(login)">LOG IN MET FACEBOOK</button>
+            <button id="wachtwoordVergeten" data-ng-click="wachtwoordVergeten(login)">WACHTWOORD VERGETEN</button>
+        </form>
+    </div>
+
+    <div id="reg-form">
+        <div id="eisenDiv">
+            <div id="eisen">
+                <p id="eisenBoodschap">De gebruikersnaam moet uit minimaal 4 tekens bestaan.</p>
+            </div>
+        </div>
+        <h2>REGISTREER</h2>
+        <p class="message">{{ registreerMessage }}</p>
+        <form name="register">
+            <input id="maile_reg" onblur="verbergEisenVeld()" onfocus="toonEisenVeld(0, 'Vul hier een valide e-mail adres in.')" type="text" data-ng-model="register.email" placeholder="Vul je e-mailadres in" /><br />
+            <input id="gebruikersnaam_reg" onblur="verbergEisenVeld()" onfocus="toonEisenVeld(1, 'De gebruikersnaam moet uit minimaal 4 tekens bestaan.')" type="text" data-ng-model="register.gebruikersnaam" placeholder="Vul je gewenste gebruikersnaam in" /><br />
+            <input id="wachtwoord_reg" onblur="verbergEisenVeld()" onfocus="toonEisenVeld(2, 'Het wachtwoord moet uit minimaal 5 tekens bestaan.')" type="password" data-ng-model="register.wachtwoord" placeholder="Je gewenste wachtwoord" /><br />
+            <input id="bevestigWachtwoord_reg" onblur="verbergEisenVeld()" onfocus="toonEisenVeld(3, 'Bevestig hier het eerder gegeven wachtwoord.')" type="password" data-ng-model="register.bevestigWachtwoord" placeholder="Herhaal gewenste wachtwoord" /><br />
+            <button id="register" data-ng-click="registerForm(register)">REGISTREER</button>
+        </form>
+    </div>
+</div>

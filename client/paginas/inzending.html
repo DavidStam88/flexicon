@@ -1,0 +1,76 @@
+<div id="header">
+    <p>Plaats een inzending voor:</p>
+    <h2>&quot; {{ woord }} &quot;</h2>
+</div>
+<div class="positie-content-container">
+<div id="themaAfbeeldingenKlein">
+    <img data-ng-repeat="thema in themas" data-ng-click="veranderThema(thema._id)" src="{{ thema.themaAfbeelding }}" alt="themaAfbeelding" />
+</div>
+<div id="voorstel">
+    <div id="themaAfbeeldingen">
+        <div data-ng-repeat="themaAfbeelding in afbeeldingenThema" class="themaAfbeelding"><img src="{{ themaAfbeelding }} " alt="themaFoto groot" /></div>
+    </div>
+    <div id="record">
+        <video id="webcam" width="500" autoplay></video>
+        <canvas id="video-canvas"></canvas>
+        <img class="videoButton" id="opnemen" data-ng-click="record()" src="./images/opnemen.png" />
+        <img class="videoButton" id="speelTerug" data-ng-click="toonVideo()" src="./images/speelTerug.png" />
+    </div>
+
+    <div id="fontScherm">
+        <div id="fonts">
+            <div class="font">
+                <input maxlength="19" data-ng-model="inzending.definitie" class="slangWoord" type="text" placeholder="Je slangwoord..." />
+            </div>
+            <div class="font">
+                <input maxlength="19" data-ng-model="inzending.definitie" class="slangWoord" type="text" placeholder="Je slangwoord..." />
+            </div>
+            <div class="font">
+                <input maxlength="19" data-ng-model="inzending.definitie" class="slangWoord" type="text" placeholder="Je slangwoord..." />
+            </div>
+        </div>
+    </div>
+
+    <div id="toelichtingWoord">
+        <textarea maxlength="80" data-ng-model="inzending.toelichting" placeholder="Geef een toelichting"></textarea>
+    </div>
+
+    <div id="flexpointsVoorbeeld">
+        <p>FLEXPOINTS: 146</p>
+        <img onmouseover="veranderFlexpoint(this, true, 'plus')" onmouseout="veranderFlexpoint(this, false, 'plus')" src="./images/inzending/plus-flexpoints.png" alt="Flexpoint plus" />
+        <img onmouseover="veranderFlexpoint(this, true, 'min')" onmouseout="veranderFlexpoint(this, false, 'min')" src="./images/inzending/min-flexpoints.png" alt="Flexpoint min" />
+    </div>
+
+    <img onmouseover="veranderPijltje(this, true, 'up')" onmouseout="veranderPijltje(this, false, 'up')" data-ng-click="veranderFont('up')" class="fontArrow" id="fontArrowUp" src="./images/voorstel/up.png" alt="fontAfbeelding omhoog" />
+    <img onmouseover="veranderPijltje(this, true, 'down')" onmouseout="veranderPijltje(this, false, 'down')" data-ng-click="veranderFont('down')" class="fontArrow"  id="fontArrowDown" src="./images/voorstel/down.png" alt="fontAfbeelding omlaag" />
+
+    <img onmouseover="veranderSom(this, true, 'plus')" onmouseout="veranderSom(this, false, 'plus')"  data-ng-click="veranderLetterGrootte('up')" class="sizeArrow" id="sizeArrowUp" src="./images/voorstel/plus.png" alt="fontAfbeelding omhoog" />
+    <img onmouseover="veranderSom(this, true, 'min')" onmouseout="veranderSom(this, false, 'min')" data-ng-click="veranderLetterGrootte('down')" class="sizeArrow"  id="sizeArrowDown" src="./images/voorstel/min.png" alt="fontAfbeelding omlaag" />
+
+    <div id="voorstellen">
+        <div data-ng-repeat="thumbnailAfbeelding in thumbnailsThema"  class="afbeeldingenThema"><img src="{{ thumbnailAfbeelding }}" alt="themaFoto" /></div>
+    </div>
+    <img onmouseover="veranderPijltje(this, true, 'up')" onmouseout="veranderPijltje(this, false, 'up')" data-ng-click="veranderThemaFoto('up')" class="navArrow" id="navArrowUp" src="./images/voorstel/up.png" alt="themaAfbeelding omhoog" />
+    <img onmouseover="veranderPijltje(this, true, 'down')" onmouseout="veranderPijltje(this, false, 'down')" data-ng-click="veranderThemaFoto('down')" class="navArrow"  id="navArrowDown" src="./images/voorstel/down.png" alt="themaAfbeelding omlaag" />
+
+    <div id="socialMediaIcons">
+        <img onmouseover="veranderTwitter(this, true)" onmouseout="veranderTwitter(this, false)" src="./images/inzending/share-twitter.png" alt="Deel op Twitter" />
+        <img onmouseover="veranderFacebook(this, true)" onmouseout="veranderFacebook(this, false)" src="./images/inzending/share-facebook.png" alt="Deel op Facebook" />
+        <img onmouseover="veranderFavorite(this, true)" onmouseout="veranderFavorite(this, false)" src="./images/inzending/add-favorite.png" alt="Voeg toe aan favorieten" />
+    </div>
+</div>
+    <p id="newTags">Tags om je inzending te kunnen vinden:</p>
+    <div id="tagsVoorstel">
+        <div data-ng-repeat="tag in tags" class="tagVoorstel"><p>{{ tag.naam }}</p><img onmouseover="veranderTag(this, true)" onmouseout="veranderTag(this, false)" data-ng-click="deleteTag(tag.id)" src="./images/voorstel/kruisje.png" /></div>
+        <div id="tagVoorstelAdd"><input maxlength="19" data-ng-model="tagNew" type="text" placeholder="Nieuwe tag..."><img onmouseover="veranderAddTag(this, true)" onmouseout="veranderAddTag(this, false)" data-ng-click="addTag()" src="./images/voorstel/add.png" /></div>
+    </div>
+
+        <div id="flexificerenNieuw">
+            <button onmouseover="voorbeeld(true)" onmouseout="voorbeeld(false)">VOORBEELD</button>
+            <button data-ng-click="flexificeren()">FLEXIFICEREN</button>
+        </div>
+    <div id="messageVak">
+        <p id="errorMessage">
+        </p>
+    </div>
+    </div>

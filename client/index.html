@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html data-ng-app="flexiconApp">
+<head>
+    <title>Flexicon urban dictionary</title>
+
+    <script src="scripts/whammy.js"></script>
+    <script src="scripts/recordVideo.js"></script>
+    <link href="stylesheet/stylesheet.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div data-ng-controller="flexiconBar" id="flex-bar">
+
+    <a href="/#/home"><img id="flex-bar-logo" src="./images/flexiconBar/home.png" alt="Flexicon" /></a>
+
+    <a class="flex-bar-link" href="/#/woordenboek">WOORDENBOEK</a>
+    <div id="flex-bar-nieuwsteInzendingen">
+        <ul>
+            <li>NIEUWSTE INZENDINGEN
+                <ul>
+                    <a href="/#/orderByAlphabet"><li>ALPHABET</li></a>
+                    <a href="/#/orderByFlexpoints"><li>FLEXPOINTS</li></a>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <img data-ng-click="accountSettings()" onmouseover="veranderAccountIcon(this, true)" onmouseout="veranderAccountIcon(this, false)" id="flex-bar-accountIcon" class="flex-bar-icon" src="./images/flexiconBar/accountIcon.png" alt="uw account-instellingen" />
+    <img data-ng-click="zoekOpties()" onmouseover="veranderZoekIcon(this, true)" onmouseout="veranderZoekIcon(this, false)" id="flex-bar-zoekIcon" class="flex-bar-icon" src="./images/flexiconBar/zoekIcon.png" alt="Zoek een woord" />
+    <input data-ng-model="zoekTerm" type="text" data-ng-model="tag" placeholder="Zoek een inzending" name="zoekterm" id="flex-bar-zoeken" />
+
+    <img data-ng-click="toonVerbergWoordVanDeWeek()" id="flex-bar-pijlIcon" class="flex-bar-icon" src="./images/flexiconBar/pijlIcon.png" alt="verberg/toon woord van de week" />
+</div>
+
+<div id="main-container" data-ng-view="">
+</div>
+
+
+
+<script src="scripts/angular/angular.min.js"></script>
+<script src="scripts/angular/angular-resource.min.js"></script>
+<script src="scripts/angular/angular-route.min.js"></script>
+
+<script src="scripts/flexiconApp.js"></script>
+<script src="scripts/services.js"></script>
+
+<script src="scripts/accountControllers.js"></script>
+<script src="scripts/favorietenControllers.js"></script>
+<script src="scripts/flexiconBarControllers.js"></script>
+<script src="scripts/gebruikerControllers.js"></script>
+<script src="scripts/homeControllers.js"></script>
+<script src="scripts/mijnFlexiesControllers.js"></script>
+<script src="scripts/reactiesControllers.js"></script>
+<script src="scripts/voorstelControllers.js"></script>
+<script src="scripts/orderByControllers.js"></script>
+<script src="scripts/woordenboekControllers.js"></script>
+<script src="scripts/inzendingControllers.js"></script>
+<script src="scripts/zoekenControllers.js"></script>
+
+</body>
+</html>

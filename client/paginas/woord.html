@@ -1,0 +1,35 @@
+<div id="header">
+    <h2>&quot; {{ woord.woord }} &quot;</h2>
+</div>
+<div class="positie-content-container">
+    <div data-ng-repeat="inzending in inzendingen" class="inzending" data-ng-style="{opacity : 1}">
+        <a href="/#/reacties/inzending/{{ inzending._id }}">
+            <img class="inzendingAfbeelding" src="{{ inzending.afbeelding }}" alt="thema-afbeelding van de inzending" />
+        </a>
+        <div class="shareIcons">
+            <div data-ng-click="addFavorite(inzending._id)" data-ng-style= "inzending.styleHartje"  onmouseover="veranderHartje(this)" onmouseout="veranderHartje(this)" class="favorite"></div>
+            <div class="twitter"></div>
+            <div class="facebook"></div>
+        </div>
+
+        <div class="videoDiv">
+            <video class="videoFoto" controls>
+                <source src= "./images/uploads/filmpje.mov">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <a href="/#/reacties/inzending/{{ inzending._id }}">
+            <h5 data-ng-style = "inzending.lettertype">{{ inzending.definitie }}</h5>
+            <h6>{{ inzending.toelichting }}</h6>
+            <p>FLEXPOINTS: {{ inzending.flexpoints }}</p>
+        </a>
+        <div class="flexpointsIcons">
+            <div data-ng-click="addFlexpoint(inzending._id)" class="flexpointsPlus"></div>
+            <div data-ng-click="minFlexpoint(inzending._id)" class="flexpointsMin"></div>
+        </div>
+    </div>
+    <div id="messageVak">
+        <p id="errorMessage">
+        </p>
+    </div>
+</div>
